@@ -55,7 +55,38 @@ class Tree {
     
     }
 
+    binarySearch(targetVal, node) {
+
+      console.log(node)
+      if(!node) return null //didnt find node
+      if(node.val === targetVal) return node //found node
     
+      
+      if(node.val > targetVal) {
+        return this.binarySearch(targetVal, node.left)
+      } else {
+        return this.binarySearch(targetVal, node.right)
+      }
+    
+    
+    }
+    
+    leafCount(node) {
+    
+    if(!node) return 0
+    if(!node.left && !node.right) return 1
+    
+    return this.leafCount(node.left) + this.leafCount(node.right)
+    
+    }
+    
+    internalNodeCount(node) {
+    
+      return this.size(node) - this.leafCount(node)
+    
+    }
+
+
 
 
 
