@@ -13,4 +13,18 @@ class Tree {
   constructor(rootNode) {
     this.rootNode = rootNode
   }
+
+  size(node) {
+    console.log(node)
+    
+    if(!node) return 0
+    
+    if(node.left === null && node.right === null) {
+      //at leaf
+      return 1;
+    }
+    
+    return 1 + this.size(node.left) + this.size(node.right)
+    
+    }
 }
