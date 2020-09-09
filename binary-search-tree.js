@@ -27,4 +27,36 @@ class Tree {
     return 1 + this.size(node.left) + this.size(node.right)
     
     }
+
+
+    insert(node, rootNode) {
+
+      let lastNode;
+      let direction;
+    
+      while(rootNode && node.val !== rootNode.val) {
+        if(node.val < rootNode.val) {
+          lastNode = rootNode
+          rootNode = rootNode.left
+          direction = "left"
+        }
+        if(node.val > rootNode.val) {
+        lastNode = rootNode
+        rootNode = rootNode.right
+        direction = "right"
+        }
+      }
+    
+    if(direction === "left") {
+      lastNode.left = node
+    } else {
+      lastNode.right = node
+    }
+    
+    }
+
+    
+
+
+
 }
